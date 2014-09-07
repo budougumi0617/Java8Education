@@ -20,8 +20,8 @@ public class OperateDirectory {
 		File[] filesByMethodReference = OperateDirectory
 				.getSubDirectoriesByMethodReference(dir);
 		System.out.println(dir.toString() + " includes "
-				+ filesByMethodReference.length + " dir(s):");
-		for (File file : filesByMethodReference) {
+				+ filesByOldMethod.length + " dir(s):");
+		for (File file : filesByOldMethod) {
 			System.out.println("\t" + file.toString());
 		}
 		System.out.println("By Lambda");
@@ -29,7 +29,7 @@ public class OperateDirectory {
 			System.out.println("\t" + file.toString());
 		}
 		System.out.println("By MethodReference");
-		for (File file : filesByLambda) {
+		for (File file : filesByMethodReference) {
 			System.out.println("\t" + file.toString());
 		}
 	}
@@ -52,7 +52,7 @@ public class OperateDirectory {
 
 	private static File[] getSubDirectoriesByLambda(File currentDir) {
 		File[] dirs = currentDir.listFiles(directoryName 
-				-> directoryName.isDirectory()); // Lambda Expression
+				-> directoryName.isDirectory()); // Lambda Expressions
 		File[] result = dirs.clone();
 		for(File file : dirs){
 			File[] files = OperateDirectory.getSubDirectoriesByLambda(file);
@@ -65,7 +65,7 @@ public class OperateDirectory {
 		File[] dirs = currentDir.listFiles(File::isDirectory); // MethodReference,object::instanceMethod
 		File[] result = dirs.clone();
 		for(File file : dirs){
-			File[] files = OperateDirectory.getSubDirectoriesByLambda(file);
+			File[] files = OperateDirectory.getSubDirectoriesByMethodReference(file);
 			result = OperateDirectory.updateResult(result, files);
 		}
 		return result;
