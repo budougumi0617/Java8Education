@@ -12,18 +12,14 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * TODO エンクロージングスコープからキャプチャされる変数はどれか
- */
+
 public class ShowDirectoryInformation {
 
 	public static void main(String[] args) {
 		File dir = new File("./");
-		File[] filesByLambda = ShowDirectoryInformation
-				.getSubDirectoriesByLambda(dir);
 		List<String> result = getExtensionList(dir, "class");
 
-		System.out.println("By Lambda");
+		System.out.println("Show result");
 		for (String file : result) {
 			System.out.println("\t" + file.toString());
 		}
@@ -35,7 +31,7 @@ public class ShowDirectoryInformation {
 		List<String> result = new ArrayList<String>();
 		for (File dir : dirs) {
 			String[] includeFile = dir.list((file, name) 
-					-> {return name.endsWith(exType);});
+					-> {return name.endsWith(exType);}); //Captured "exType" from enclosing scope. 
 			for (String file : includeFile) {
 				result.add(file);
 			}
