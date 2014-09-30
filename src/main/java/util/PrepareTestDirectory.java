@@ -5,7 +5,7 @@
  * @author budougumi0617
  * @date Created on 2014/09/07
  */
-package util;
+package main.java.util;
 
 import java.io.BufferedWriter;
 import java.io.File;
