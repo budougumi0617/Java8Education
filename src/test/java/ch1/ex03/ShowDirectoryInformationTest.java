@@ -22,19 +22,16 @@ import org.junit.Test;
  * @note no comment
  */
 public class ShowDirectoryInformationTest {
-	
+
 	ShowDirectoryInformation testTarget;
-	
+
 	@Test
 	public void returnNotNull() {
 		File currentDir = new File("./");
 		String exType = "class";
-		List<String> result = ShowDirectoryInformation.getExtensionList(currentDir, exType);
-		assertThat(result.isEmpty(),is(false));
-	}
-	@Test
-	public void test2() {
-		fail("For checking Travis CI");
+		List<String> result = ShowDirectoryInformation.getExtensionList(
+				currentDir, exType);
+		assertThat(result.isEmpty(), is(false));
 	}
 
 }
