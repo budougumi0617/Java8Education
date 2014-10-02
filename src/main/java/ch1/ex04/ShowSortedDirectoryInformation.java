@@ -5,7 +5,7 @@
  * @author budougumi0617
  * @date Created on 2014/09/16
  */
-package main.java.ch1.ex01_04;
+package main.java.ch1.ex04;
 
 import java.io.File;
 import java.util.Arrays;

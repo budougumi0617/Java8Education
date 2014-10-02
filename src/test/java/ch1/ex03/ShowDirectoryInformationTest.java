@@ -5,7 +5,7 @@
  * @author budougumi0617
  * @date Created on 2014/09/30
  */
-package test.java.ch1.ex01_03;
+package test.java.ch1.ex03;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.util.List;
 
-import main.java.ch1.ex01_03.ShowDirectoryInformation;
+import main.java.ch1.ex03.ShowDirectoryInformation;
 
 import org.junit.Test;
 

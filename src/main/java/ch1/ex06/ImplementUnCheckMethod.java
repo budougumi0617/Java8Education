@@ -5,7 +5,7 @@
  * @author budougumi0617
  * @date Created on 2014/09/16
  */
-package main.java.ch1.ex01_06;
+package main.java.ch1.ex06;
 
 /**
  * @author budougumi0617

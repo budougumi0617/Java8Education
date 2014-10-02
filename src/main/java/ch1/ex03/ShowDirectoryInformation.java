@@ -5,7 +5,7 @@
  * @author budougumi0617
  * @date Created on 2014/09/01
  */
-package main.java.ch1.ex01_03;
+package main.java.ch1.ex03;
 
 import java.io.File;
 import java.io.FileFilter;
