@@ -24,13 +24,13 @@ public class Ex07Test {
     @Test
     public void testGetTrue() {
         Stream<String> infiniteStream = Stream.generate(() -> "test");
-        assertTrue(Ex07.isFinite(infiniteStream));
+        assertFalse(Ex07.isFinite(infiniteStream));
     }
 
     @Test
     public void testGetFalse() {
         Stream<String> finiteStream = Stream.generate(() -> "test").limit(10);
-        assertFalse(Ex07.isFinite(finiteStream));
+        assertTrue(Ex07.isFinite(finiteStream));
     }
 
 }
