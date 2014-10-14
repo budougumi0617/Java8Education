@@ -14,7 +14,6 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-
 /**
  * @author budougumi0617
  * @note 
@@ -22,43 +21,44 @@ import java.util.List;
  *       みつかったら、filterメソッドが呼び出されないことを検証しなさい。単純に、
  *       各メソッドの呼び出しで、ログを出せば良いです。
  */
-public class SearchLongWordsOnlyFive {
-	
+public class Ex02 {
+
 	List<String> words;
-	static final int longLength = 12;
-	
+	private static final int LONG_LENGTH = 12;
+	public static final int LIMIT_COUNT = 5;
+	private int count = 0;
+
 	public List<String> getWordsList() throws IOException {
-		String contents = new String(Files.readAllBytes(
-				Paths.get("./src/main/resources/ch2/alice.txt")), StandardCharsets.UTF_8);
+		String contents = new String(Files.readAllBytes(Paths
+				.get("./src/main/resources/ch2/alice.txt")),
+				StandardCharsets.UTF_8);
 		return (List<String>) Arrays.asList(contents.split("[\\P{L}]+"));
-		
+
 	}
-	
-	public int countLongWordBySingle(List<String> words){
-		int count = 0;
-		for (String w : words){
-			if (w.length() > longLength) count++;
-		}
+
+	public int searchLongWord(List<String> words) {
+		count = 0;
+		words.stream().peek(e -> System.out.println("peek " + e))
+				.filter(w -> w.length() > LONG_LENGTH)
+				.peek(e -> {
+					count++;
+					System.out.println("Fetching filter " + e);
+				}).limit(LIMIT_COUNT).forEach(System.out::println);
 		return count;
 	}
 
-	public int countLongWordByParallel(List<String> words){
-		int count = 0;
-		
-		return count;
-	}
-	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SearchLongWordsOnlyFive slwof = new SearchLongWordsOnlyFive();
+		Ex02 ex02 = new Ex02();
 		try {
-			slwof.words = slwof.getWordsList();
+			ex02.words = ex02.getWordsList();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Count Result = " + slwof.countLongWordBySingle(slwof.words));
+		System.out.println("Count of calling filter() = "
+				+ ex02.searchLongWord(ex02.words));
 	}
 
 }

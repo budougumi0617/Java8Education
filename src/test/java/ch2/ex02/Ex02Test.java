@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.util.List;
 
-import main.java.ch2.ex02.SearchLongWordsOnlyFive;
+import main.java.ch2.ex02.Ex02;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,15 +23,15 @@ import org.junit.Test;
  * @note no comment
  */
 public class Ex02Test {
-	SearchLongWordsOnlyFive targetClass;
+	Ex02 targetClass;
 
 	@Before
 	public void prepare() {
-		targetClass = new SearchLongWordsOnlyFive();
+		targetClass = new Ex02();
 	}
 
 	@Test
-	public void prepareTest() {
+	public void noThrowException() {
 		assertNotNull(targetClass);
 		try {
 			List<String> words = targetClass.getWordsList();
@@ -40,17 +40,17 @@ public class Ex02Test {
 			fail();
 		}
 	}
-
+	
 	@Test
-	public void checkSameResult() {
-		List<String> words = null;
+	public void checkFilterCallCount() {
+		assertNotNull(targetClass);
 		try {
-			words = targetClass.getWordsList();
+			List<String> words = targetClass.getWordsList();
+			assertThat(targetClass.searchLongWord(words), is(Ex02.LIMIT_COUNT));
 		} catch (IOException e) {
+			e.printStackTrace();
 			fail();
 		}
-		assertThat(targetClass.countLongWordByParallel(words),
-				is(targetClass.countLongWordBySingle(words)));
 	}
 
 }
