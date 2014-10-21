@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import main.java.util.StreamOperating;
+
 /**
  * @author budougumi0617
  * @note Stream<ArrayList<T>>内の全ての要素を、
@@ -65,35 +67,19 @@ public class Ex09 {
 		});
 	}
 
-	public static Stream<ArrayList<Integer>> createIntArraysListStream() {
-		ArrayList<Integer> firstArray = new ArrayList<Integer>();
-		// TODO Stream()で生成したい
-		for (int i = 0; i < 10; i++) {
-			firstArray.add(i);
-		}
-		@SuppressWarnings("unchecked")
-		ArrayList<Integer> secondArray = (ArrayList<Integer>) firstArray
-				.clone();
-		@SuppressWarnings("unchecked")
-		ArrayList<Integer> thirdArray = (ArrayList<Integer>) firstArray.clone();
-
-		return Stream.of(firstArray, secondArray, thirdArray);
-
-	}
-
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		System.out.println("\nFirst Pattern\n");
-		Ex09.joinListStreamFirst(createIntArraysListStream()).forEach(
-				System.out::print);
+		Ex09.joinListStreamFirst(StreamOperating.createIntArraysListStream())
+				.forEach(System.out::print);
 		System.out.println("\nSecond Pattern\n");
-		Ex09.joinListStreamSecond(createIntArraysListStream()).forEach(
-				System.out::print);
+		Ex09.joinListStreamSecond(StreamOperating.createIntArraysListStream())
+				.forEach(System.out::print);
 		System.out.println("\nThird Pattern\n");
-		Ex09.joinListStreamThird(createIntArraysListStream()).forEach(
-				System.out::print);
+		Ex09.joinListStreamThird(StreamOperating.createIntArraysListStream())
+				.forEach(System.out::print);
 
 	}
 
