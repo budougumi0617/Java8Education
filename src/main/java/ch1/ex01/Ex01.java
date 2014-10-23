@@ -37,7 +37,7 @@ public class Ex01 {
 
     public static void main(String[] args) {
         System.out.println("Main thread name =  "
-                + Thread.currentThread().getName());
+                + Thread.currentThread().getName())
         String[] words = null;
         try {
             words = (String[]) getWordsList().toArray();
