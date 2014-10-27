@@ -42,7 +42,7 @@ public class Ex01 {
 			words = (String[]) getWordsList().toArray();
 			Arrays.sort(
 					words,
-					(String first, String second) -> {
+					(first, second) -> {
 						System.out.println("Comparater thread name = "
 								+ Thread.currentThread().getName());
 						return Integer.compare(first.length(), second.length());
