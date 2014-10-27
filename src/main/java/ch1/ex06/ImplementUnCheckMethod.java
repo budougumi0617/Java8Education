@@ -39,8 +39,7 @@ public class ImplementUnCheckMethod {
 			try {
 				runner.run();
 			} catch (Exception e) {
-				System.out.println("Failed Runnable.run()");
-				e.printStackTrace();
+				 new RuntimeException(e);
 			}
 		};
 		return returnRunable;
