@@ -18,7 +18,7 @@ import org.junit.Test;
 
 /**
  * @author budougumi0617
- * @note no comment
+ * @note fail()を含んだラムダ式を渡すことで、条件式が判断されているかテストする。
  */
 public class Ex01Test {
 

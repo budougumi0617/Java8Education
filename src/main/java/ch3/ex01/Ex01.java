@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import test.java.ch2.ex03.Ex03Test;
+import test.java.ch3.ex01.Ex01Test;
 
 /**
  * @author budougumi0617
@@ -22,7 +22,7 @@ import test.java.ch2.ex03.Ex03Test;
  *       (最高値), WARNING (警告), INFO, CONFIG, FINE, FINER, FINEST (最低値)
  * @see <a
  *      href="http://docs.oracle.com/javase/jp/8/api/java/util/function/package-frame.html">Supplier系</a>
- * @see Ex03Test
+ * @see Ex01Test
  */
 public class Ex01 {
     static private Logger logger = Logger.getLogger(Ex01.class.getName());
