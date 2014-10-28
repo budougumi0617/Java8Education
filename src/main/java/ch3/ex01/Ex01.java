@@ -12,13 +12,17 @@ import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import test.java.ch2.ex03.Ex03Test;
+
 /**
  * @author budougumi0617
  * @note 条件的なロギングを提供することで、遅延ロギング技法を強化しなさい。 典型的な呼び出しは、 logIf(Level.FINEST, () ->
  *       i == 10, () -> "a[10] = " + a[1]) となります。
- *       ロガーがメッセージをロギングしないのであれば、その条件を評価しないようにしなさい。
+ *       ロガーがメッセージをロギングしないのであれば、その条件を評価しないようにしなさい。 Loggerのレベルは降順で次のとおりです。 SEVERE
+ *       (最高値), WARNING (警告), INFO, CONFIG, FINE, FINER, FINEST (最低値)
  * @see <a
  *      href="http://docs.oracle.com/javase/jp/8/api/java/util/function/package-frame.html">Supplier系</a>
+ * @see Ex03Test
  */
 public class Ex01 {
     static private Logger logger = Logger.getLogger(Ex01.class.getName());
@@ -43,9 +47,8 @@ public class Ex01 {
     * @param args
     */
     public static void main(String[] args) {
-        int i = 9;
-        Ex01.setLoggerLevel(Level.FINEST);
-        logIf(Level.FINEST, () -> i == 10, () -> "test");
+        Ex01.setLoggerLevel(Level.FINE);
+        logIf(Level.SEVERE, () -> true, () -> "test");
     }
 
 }
