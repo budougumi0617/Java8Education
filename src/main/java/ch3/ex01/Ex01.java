@@ -12,8 +12,6 @@ import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import test.java.ch3.ex01.Ex01Test;
-
 /**
  * @author budougumi0617
  * @note 条件的なロギングを提供することで、遅延ロギング技法を強化しなさい。 典型的な呼び出しは、 logIf(Level.FINEST, () ->
@@ -22,7 +20,7 @@ import test.java.ch3.ex01.Ex01Test;
  *       (最高値), WARNING (警告), INFO, CONFIG, FINE, FINER, FINEST (最低値)
  * @see <a
  *      href="http://docs.oracle.com/javase/jp/8/api/java/util/function/package-frame.html">Supplier系</a>
- * @see Ex01Test
+ * @see test.java.ch3.ex01.Ex01Test
  */
 public class Ex01 {
     static private Logger logger = Logger.getLogger(Ex01.class.getName());
