@@ -16,11 +16,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-@FunctionalInterface
-interface ColorTransformer {
-	public Color apply(int x, int y, Color c);
-}
-
 /**
  * @author budougumi0617
  * @note 次は、ColorTransformerの具体例です。
@@ -31,7 +26,7 @@ interface ColorTransformer {
  *       画像の周りの10ピクセルを灰色の枠で置き換えるために
  *       、そのtransformメソッドを 適切なラムダ式で呼び出しなさい。
  * @note "$ cd ${GRADLE_HOME}/src"
- *       "$ javac main/java/ch3/ex05/Ex05.java"
+ *       "$ javac main/java/ch3/ex05/*.java"
  *       "$ java main.java.ch3.ex05.Ex05"
  */
 public class Ex05 extends Application {
