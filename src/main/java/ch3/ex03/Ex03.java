@@ -19,41 +19,38 @@ import java.util.function.BooleanSupplier;
  *       /jp/1.5.0/guide/language/assert.html}
  */
 public class Ex03 {
-	static private Boolean enableassertions = isEnableassertions();
+    static private Boolean enableassertions = isEnableassertions();
 
-	/**
-	 * @return the enableassertions
-	 */
-	public static boolean isEnableassertions() {
-		return enableassertions == null ? true : enableassertions;
-	}
+    /**
+    * @return the enableassertions
+    */
+    public static boolean isEnableassertions() {
+        return enableassertions == null ? true : enableassertions;
+    }
 
-	/**
-	 * @param enableassertions
-	 *            the enableassertions to set
-	 */
-	public static void setEnableassertions(boolean enableassertions) {
-		Ex03.enableassertions = enableassertions;
-	}
+    /**
+    * @param enableassertions
+    *            the enableassertions to set
+    */
+    public static void setEnableassertions(boolean enableassertions) {
+        Ex03.enableassertions = enableassertions;
+    }
 
-	public static void assertByLambda(BooleanSupplier condition) {
-		assertByLambda(condition, "");
-	}
+    public static void assertByLambda(BooleanSupplier condition) {
+        assertByLambda(condition, "");
+    }
 
-	public static void assertByLambda(BooleanSupplier condition, String message) {
-		if (isEnableassertions() && condition.getAsBoolean())
-			throw new AssertionError(message);
-	}
+    public static void assertByLambda(BooleanSupplier condition, String message) {
+        if (isEnableassertions() && !condition.getAsBoolean())
+            throw new AssertionError(message);
+    }
 
-	public static void main(String[] args) {
-		System.out.println("Assert switch : " + Ex03.isEnableassertions());
-		Ex03.assertByLambda(() -> false, "No assert");
-		Ex03.setEnableassertions(false);
-		System.out.println("Assert switch : " + Ex03.isEnableassertions());
-		Ex03.assertByLambda(() -> true, "No assert");
-		// Ex03.setEnableassertions(true);
-		// Ex03.assertByLambda(() -> true,
-		// "Throw AssertError");
-	}
+    public static void main(String[] args) {
+        System.out.println("Assert switch : " + Ex03.isEnableassertions());
+        Ex03.assertByLambda(() -> true, "No assert");
+        Ex03.setEnableassertions(false);
+        System.out.println("Assert switch : " + Ex03.isEnableassertions());
+        Ex03.assertByLambda(() -> false, "No assert");
+    }
 
 }
