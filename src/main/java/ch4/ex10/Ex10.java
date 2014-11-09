@@ -1,7 +1,7 @@
 /**
  * @file
  * @par File Name:
- * Ex04.java
+ * Ex10.java
  * @author budougumi0617
  * @date Created on 2014/11/09
  */
