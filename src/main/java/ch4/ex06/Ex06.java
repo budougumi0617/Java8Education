@@ -12,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -20,18 +21,25 @@ import javafx.stage.Stage;
  */
 public class Ex06 extends Application {
 
-	@Override
-	public void start(Stage stage) throws Exception {
+	static Pane getPane() {
 		BorderPane pane = new BorderPane();
-		pane.setTop(new Button("Top"));
+		Button top = new Button("Top");
+		pane.setTop(top);
+		pane.setAlignment(top, Pos.CENTER);
+
 		pane.setLeft(new Button("Left"));
 		pane.setCenter(new Button("Center"));
 		pane.setRight(new Button("Right"));
 		Button bottom = new Button("Bottom");
 		pane.setBottom(bottom);
 		pane.setAlignment(bottom, Pos.CENTER);
+		return pane;
+	}
 
-		stage.setScene(new Scene(pane));
+	@Override
+	public void start(Stage stage) throws Exception {
+
+		stage.setScene(new Scene(getPane()));
 		stage.show();
 
 	}
