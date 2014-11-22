@@ -37,9 +37,9 @@ public class Ex09 extends Application {
 	private void init(Stage stage) {
 
 		Circle planet = new Circle(10, 10, 10);
-		planet.setFill(Color.RED);
+		planet.setFill(Color.BLUE);
 		Circle satellite = new Circle(40, 40, 40);
-		satellite.setFill(Color.ORANGE);
+		satellite.setFill(Color.YELLOW);
 
 		Pane pane = new Pane();
 		pane.getChildren().add(planet);
