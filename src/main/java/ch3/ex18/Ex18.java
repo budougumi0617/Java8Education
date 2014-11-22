@@ -21,7 +21,7 @@ import java.util.function.Function;
 public class Ex18 {
 	@FunctionalInterface
 	public interface FunctionEx<T, R> {
-		public R apply(T t) throws Exception;
+		public R apply(T t) throws RuntimeException;
 	}
 
 	public static <T, U> Function<T, U> unchecked(FunctionEx<T, U> func) {

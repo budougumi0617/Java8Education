@@ -19,7 +19,7 @@ import org.junit.Test;
 
 /**
  * @author budougumi0617
- * @note no comment
+ * @note ランタイムエクセプションが発生している確認する。
  */
 public class Ex18Test {
 
