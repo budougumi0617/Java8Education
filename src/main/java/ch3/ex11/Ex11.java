@@ -31,7 +31,7 @@ import main.java.ch3.ex05.Ex05;
  */
 public class Ex11 extends Application {
 
-	public static ColorTransformer combineColorTransformer(ColorTransformer ct1,
+	public static ColorTransformer composeColorTransformer(ColorTransformer ct1,
 			ColorTransformer ct2) {
 		return (x, y, c) -> ct1.apply(x, y, ct2.apply(x, y, c));
 	}
@@ -43,7 +43,7 @@ public class Ex11 extends Application {
 	public static Image createImage(Image image) {
 		return Ex05.transform(
 				image,
-				combineColorTransformer((x, y, c) -> x < 10 || x > image.getWidth() - 10
+				composeColorTransformer((x, y, c) -> x < 10 || x > image.getWidth() - 10
 						|| y < 10 || y > image.getHeight() - 10 ? Color.GRAY : c,
 						convertToColorTransformer(Color::brighter)));
 	}
