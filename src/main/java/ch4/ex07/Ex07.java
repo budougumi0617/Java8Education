@@ -25,10 +25,7 @@ import javafx.stage.Stage;
 
 /**
  * @author budougumi0617
- * @note CSSを使用しないで、コントロールの境界を設定する方法を調べなさい。 Answer
- *       1.コントロールに対応するRegionの値を設定する
- *       (setPrefHeight, setMaxHeight etc）
- *       2.Javaの中から各属性をsetStyleで設定する
+ * @note CSSを使用しないで、コントロールの境界を設定する方法を調べなさい。
  * @see <a href=
  *      "https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html">
  *      CSS reference guide</a>
@@ -45,7 +42,6 @@ public class Ex07 extends Application implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		rootPane.orientationProperty().set(Orientation.VERTICAL);
 		rootPane.setMinSize(500d, 200d);
-		bigField.setText("From Ex07.java");
 		bigField.setPrefWidth(500d);
 		bigField.setStyle("-fx-background-color: mistyrose");
 		smallField.setFont(new Font(100));
