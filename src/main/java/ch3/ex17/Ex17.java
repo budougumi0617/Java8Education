@@ -21,7 +21,7 @@ import java.util.function.Consumer;
  */
 public class Ex17 {
 	public static void doInParrallelAsync(Runnable first, Runnable second,
-			Consumer<Throwable> handler) {
+			Consumer<? super Throwable> handler) {
 		ExecutorService threadPool = Executors.newFixedThreadPool(3);
 		threadPool.submit(() -> {
 			try {

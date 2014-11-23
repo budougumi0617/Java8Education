@@ -23,8 +23,8 @@ import java.util.function.Supplier;
  *       ユースケースはsrc/test/java/ch16/Ex16.java参照
  */
 public class Ex16 {
-	public static <T> void doIntOrderAsync(Supplier<T> first,
-			BiConsumer<T, Throwable> second) {
+	public static <T> void doIntOrderAsync(Supplier<? extends T> first,
+			BiConsumer<? super T, ? super Throwable> second) {
 		Thread t = new Thread() {
 			public void run() {
 				T result = null;
