@@ -37,7 +37,7 @@ public class Ex17 {
 				handler.accept(t);
 			}
 		});
-
+		threadPool.shutdown();
 	}
 
 	public static void main(String[] args) {

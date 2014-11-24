@@ -35,8 +35,7 @@ public class Ex21Test {
 		Integer result = 100;
 		System.out.println("task start");
 
-		Future<String> actual = Ex21.map(service.submit(() -> result),
-				(t) -> t.toString());
+		Future<String> actual = Ex21.map(service.submit(() -> result), t -> t.toString());
 		try {
 			assertThat(actual.get(), is(result.toString()));
 			assertTrue(actual.isDone());
@@ -58,7 +57,7 @@ public class Ex21Test {
 		Future<String> actual = Ex21.map(service.submit(() -> {
 			Thread.sleep(1_000);
 			return result;
-		}), (t) -> t.toString());
+		}), t -> t.toString());
 		try {
 			assertThat(actual.get(2, TimeUnit.SECONDS), is(result.toString()));
 			assertTrue(actual.isDone());
