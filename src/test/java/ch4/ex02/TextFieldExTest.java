@@ -15,10 +15,11 @@ import javafx.application.Application;
 import javafx.beans.property.StringProperty;
 import main.java.ch4.ex02.Ex02;
 import main.java.ch4.ex02.TextFieldEx;
-import main.java.util.TestOperation;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import test.java.util.TestOperation;
 
 /**
  * @author budougumi0617
