@@ -30,9 +30,8 @@ public class TextFieldExTest {
 
 	@BeforeClass
 	public static void setUpClass() throws InterruptedException {
-		// Initialise Java FX
+		// Initialize Java FX
 		System.out.printf("About to launch FX App\n");
-
 		Thread t = new Thread("JavaFX Init Thread") {
 			public void run() {
 				Application.launch(Ex02.class, new String[0]);
@@ -41,7 +40,6 @@ public class TextFieldExTest {
 		t.setDaemon(true);
 		t.start();
 		System.out.printf("FX App thread started\n");
-		Thread.sleep(500);
 	}
 
 	@Test
