@@ -1,0 +1,2 @@
+inFoo testString1
+hoge
