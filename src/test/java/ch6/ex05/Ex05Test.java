@@ -22,7 +22,7 @@ import org.junit.Test;
 
 /**
  * @author budougumi0617
- * @note no comment
+ * @note Validate contents of Map
  */
 public class Ex05Test {
 	File file1 = new File("./src/main/resources/ch6/foo.txt");
@@ -32,6 +32,7 @@ public class Ex05Test {
 	public void test() {
 		File[] files = { file1, file2 };
 		Map<String, Set<File>> result = Ex05.newWordMap(files);
+		assertThat(result.size(), is(4));
 		assertThat(result, hasKey("inBar"));
 		Set<File> value = result.get("inBar");
 		assertThat(value.size(), is(1));
