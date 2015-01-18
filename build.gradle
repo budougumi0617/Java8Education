@@ -4,9 +4,12 @@ apply plugin: 'eclipse'
 sourceCompatibility = targetCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	testCompile "junit:junit:4.11"
+    testCompile 'junit:junit:4.11', {
+        transitive = false
+    }
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
