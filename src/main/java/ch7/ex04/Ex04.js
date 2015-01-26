@@ -1,0 +1,8 @@
+string = 'Hello'.slice(-2)
+print(string)
+print(string.getClass())
+cast_class = string.getClass()
+result = java.lang.String.class.cast(string)
+print(result)
+java.lang.String.class.cast(result)
+print(result)
