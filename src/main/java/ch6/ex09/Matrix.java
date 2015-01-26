@@ -7,7 +7,6 @@
  */
 package main.java.ch6.ex09;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -70,7 +69,7 @@ public class Matrix {
 		return matrix[0][0];
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		Matrix[] matrixies = new Matrix[20];
 		Arrays.parallelSetAll(matrixies, i -> new Matrix());
 		Arrays.parallelPrefix(matrixies, (x, y) -> x.multiply(y));
