@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -33,10 +34,16 @@ public class Ex01 {
 
 	public static void printToFile(Scanner in, String outFile)
 			throws FileNotFoundException {
-		PrintWriter out = new PrintWriter(outFile);
+
+		PrintWriter out = null;
 		try {
-			while (in.hasNext())
+			out = new PrintWriter(outFile);
+			while (in.hasNext()) {
 				out.println(in.next().toLowerCase());
+			}
+		} catch (FileNotFoundException // PrintWriterのコンストラクタは例外をスローする。
+				| IllegalStateException | NoSuchElementException e) {
+			e.printStackTrace();
 		} finally {
 			try {
 				out.close();
@@ -48,27 +55,20 @@ public class Ex01 {
 	}
 
 	public static void readWordsFromFileVerJava6(String inFile, String outFile) {
-
+		Scanner in = null;
 		try {
-			Scanner in = new Scanner(Paths.get(inFile));
-
-			try {
-				printToFile(in, outFile);
-			} catch (FileNotFoundException e) {
-				// PrintWriterのコンストラクタは例外をスローする。
-				e.printStackTrace();
-			} finally {
-				try {
-
-					in.close();
-				} catch (Exception e) {
-					// in.close()は例外をスローする。
-					e.printStackTrace();
-				}
-			}
-		} catch (IOException e1) {
+			in = new Scanner(Paths.get(inFile));
+			printToFile(in, outFile);
+		} catch (Exception ioe) {
 			// Scannerのコンストラクタは例外をスローする。
-			e1.printStackTrace();
+			ioe.printStackTrace();
+		} finally {
+			try {
+				in.close();
+			} catch (Exception e) {
+				// in.close()は例外をスローする。
+				e.printStackTrace();
+			}
 		}
 	}
 
