@@ -22,13 +22,15 @@ import java.util.Scanner;
  * @note Refer to README.md
  */
 public class Ex01 {
-	public static void readWordsFromFile(String inFile, String outFile) {
+	public static void readWordsFromFile(String inFile, String outFile)
+			throws IOException {
 		try (Scanner in = new Scanner(Paths.get(inFile));
 				PrintWriter out = new PrintWriter(outFile)) {
 			while (in.hasNext())
 				out.println(in.next().toLowerCase());
 		} catch (IOException e) {
 			e.printStackTrace();
+			throw e;
 		}
 	}
 
