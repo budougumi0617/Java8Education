@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <pomVersion>3</pomVersion>
+    <name>hoge</name>
+    <id>hoge</id>
+    <groupId>Hoge</groupId>
+    <currentVersion>1.2.0</currentVersion>
+    <organization>
+        <name>Hoge Project</name>
+        <url>http://hogehogefuga.sourceforge.jp/</url>
+    </organization>
+    <inceptionYear>2003</inceptionYear>
+    <package>jp.ossc.hoge</package>
+    <dependencies>
+        <dependency>
+            <id>ant</id>
+            <version>1.5</version>
+        </dependency>
+
+        <dependency>
+            <id>junit</id>
+            <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <id>ejb</id>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <id>jta</id>
+            <version>1.0.1</version>
+            <url>http://java.sun.com/products/jta</url>
+        </dependency>
+
+        <dependency>
+            <id>jms</id>
+            <version>1.1</version>
+        </dependency>
+
+        <dependency>
+            <id>servletapi</id>
+            <version>2.4-20030804.000000</version>
+        </dependency>
+
+        <dependency>
+            <id>log4j</id>
+            <version>1.2.9</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>jfreechart</groupId>
+            <artifactId>jfreechart</artifactId>
+            <id>jfreechart</id>
+            <version>1.0.13</version>
+            <type>jar</type>
+        </dependency> 
+        
+        <dependency>
+            <id>javasysmon</id>
+            <version>0.3.3</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+</project>
