@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane fx:id="mainPane" maxHeight="500" maxWidth="1000" minHeight="10.0" minWidth="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Menu">
+            <items>
+                  <MenuItem fx:id="propItem" mnemonicParsing="false" onAction="#showDialog" text="Properties" />
+              <MenuItem mnemonicParsing="false" onAction="#handleCloseAction" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Label fx:id="time" alignment="CENTER" contentDisplay="CENTER" maxHeight="500" maxWidth="1000" minHeight="-Infinity" minWidth="-Infinity" text="00:00:00" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Arial" size="96.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>
