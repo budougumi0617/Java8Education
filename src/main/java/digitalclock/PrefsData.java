@@ -10,8 +10,8 @@ public class PrefsData {
 		prefs = Preferences.userNodeForPackage(this.getClass());
 	}
 
-	public void intSave(String key, int data) {
-		System.out.println("Save int Data : " + key);
+	public void saveInt(String key, int data) {
+		System.out.println("Save : key = " + key + " value = " + data);
 		try {
 			prefs.putInt(key, data);
 			prefs.flush();
@@ -20,8 +20,42 @@ public class PrefsData {
 		}
 	}
 
-	public int intLoad(String key, int def) {
-		System.out.println("Get int Data :" + key);
-		return prefs.getInt(key, def);
+	public void saveString(String key, String data) {
+		System.out.println("Save : key = " + key + " value = " + data);
+		try {
+			prefs.put(key, data);
+			prefs.flush();
+		} catch (BackingStoreException e) {
+			e.printStackTrace();
+		}
 	}
+
+	public void saveDouble(String key, double data) {
+		System.out.println("Save : key = " + key + " value = " + data);
+		try {
+			prefs.putDouble(key, data);
+			prefs.flush();
+		} catch (BackingStoreException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public int loadInt(String key, int def) {
+		int result = prefs.getInt(key, def);
+		System.out.println("load : key = " + key + " value = " + result);
+		return result;
+	}
+
+	public String loadString(String key, String def) {
+		String result = prefs.get(key, def);
+		System.out.println("load : key = " + key + " value = " + result);
+		return result;
+	}
+
+	public double loadDouble(String key, double def) {
+		double result = prefs.getDouble(key, def);
+		System.out.println("load : key = " + key + " value = " + result);
+		return result;
+	}
+
 }

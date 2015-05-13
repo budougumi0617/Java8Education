@@ -21,9 +21,6 @@
    </top>
    <center>
       <Label fx:id="time" alignment="CENTER" contentDisplay="CENTER" maxHeight="500" maxWidth="1000" minHeight="-Infinity" minWidth="-Infinity" text="00:00:00" textAlignment="CENTER" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="Arial" size="96.0" />
-         </font>
       </Label>
    </center>
 </BorderPane>

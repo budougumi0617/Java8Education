@@ -54,8 +54,9 @@ public class DialogController implements Initializable {
 				.getValue()));
 		System.out.println("Font : " + fontTypeBox.getValue());
 		clockController.time.setTextFill(fontColorPicker.getValue());
+		clockController.backColor = backColorPicker.getValue();
 		clockController.mainPane.setStyle("-fx-background-color: "
-				+ getRgb(backColorPicker.getValue()) + ";");
+				+ clockController.getRgb(clockController.backColor) + ";");
 		Text text = new Text("00:00:00");
 		text.setFont(clockController.time.getFont());
 		clockController.stage.setHeight(text.getLayoutBounds().getHeight() * 1.5
@@ -65,18 +66,6 @@ public class DialogController implements Initializable {
 		System.out.println("width : " + clockController.time.getWidth());
 		System.out.println("height : " + clockController.time.getHeight());
 		System.out.println("Handled okBtn action!");
-	}
-
-	private String getRgb(Color c) {
-		String result = "rgba( ";
-		result += getRGBValue(c.getRed()) + "," + getRGBValue(c.getGreen()) + ","
-				+ getRGBValue(c.getBlue()) + "," + c.getOpacity() + ")";
-		System.out.println("color string: " + result);
-		return result;
-	}
-
-	private int getRGBValue(double d) {
-		return (int) (255 * d);
 	}
 
 	@Override
