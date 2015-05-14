@@ -37,17 +37,33 @@ public class DialogController implements Initializable {
 	private ObservableList<String> fontTypeList;
 	private ObservableList<Integer> fontSizeList;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param clockController
+	 *            controller of main view
+	 */
 	public DialogController(ClockController clockController) {
 		this.clockController = clockController;
 	}
 
+	/**
+	 * Handle pushing Cancel button
+	 * 
+	 * @param e
+	 */
 	@FXML
 	void handleCancelButtonAction(ActionEvent e) {
 		fontTypeLabel.getScene().getWindow().hide();
-		System.out.println(backColorPicker.getValue().toString());
 		System.out.println("Handled cancelBtn action!");
 	}
 
+	/**
+	 * When push OK Button, save setting value
+	 * 
+	 * @param e
+	 *            No used
+	 */
 	@FXML
 	void handleOkButtonAction(ActionEvent e) {
 		clockController.time.setFont(new Font(fontTypeBox.getValue(), fontSizeBox
@@ -68,6 +84,9 @@ public class DialogController implements Initializable {
 		System.out.println("Handled okBtn action!");
 	}
 
+	/**
+	 * Initialized Dialog view
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -78,8 +97,9 @@ public class DialogController implements Initializable {
 		fontTypeBox.setValue(clockController.time.getFont().getName());
 		fontSizeList = FXCollections.observableArrayList(50, 75, 100, 125, 150);
 		fontSizeBox.setItems(fontSizeList);
-		fontSizeBox.setValue(100);
+		fontSizeBox.setValue((int) clockController.time.getFont().getSize());
 		fontColorPicker.setValue((Color) clockController.time.getTextFill());
+		backColorPicker.setValue(clockController.backColor);
 	}
 
 }

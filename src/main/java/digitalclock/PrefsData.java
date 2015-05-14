@@ -10,16 +10,6 @@ public class PrefsData {
 		prefs = Preferences.userNodeForPackage(this.getClass());
 	}
 
-	public void saveInt(String key, int data) {
-		System.out.println("Save : key = " + key + " value = " + data);
-		try {
-			prefs.putInt(key, data);
-			prefs.flush();
-		} catch (BackingStoreException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public void saveString(String key, String data) {
 		System.out.println("Save : key = " + key + " value = " + data);
 		try {
@@ -38,12 +28,6 @@ public class PrefsData {
 		} catch (BackingStoreException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public int loadInt(String key, int def) {
-		int result = prefs.getInt(key, def);
-		System.out.println("load : key = " + key + " value = " + result);
-		return result;
 	}
 
 	public String loadString(String key, String def) {

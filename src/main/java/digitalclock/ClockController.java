@@ -56,10 +56,19 @@ public class ClockController implements Initializable {
 	protected Color backColor;
 	private PrefsData prefs;
 
+	/**
+	 * Constructor using primary stage
+	 * 
+	 * @param stage
+	 *            Primary stage.
+	 */
 	public ClockController(Stage stage) {
 		this.stage = stage;
 	}
 
+	/**
+	 * Initialized Clock view
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		prefs = new PrefsData();
@@ -86,6 +95,12 @@ public class ClockController implements Initializable {
 		timeline.play();
 	}
 
+	/**
+	 * Open Configuration dialog
+	 * 
+	 * @param event
+	 *            no used
+	 */
 	@FXML
 	void showDialog(ActionEvent event) {
 		try {
@@ -101,6 +116,8 @@ public class ClockController implements Initializable {
 			dialog.initOwner(time.getScene().getWindow());
 			dialog.setResizable(false);
 			dialog.initModality(Modality.WINDOW_MODAL);
+			dialog.setX(stage.getX() + 10.);
+			dialog.setY(stage.getY() - 10.);
 
 			dialog.showAndWait();
 		} catch (IOException e) {
@@ -108,6 +125,12 @@ public class ClockController implements Initializable {
 		}
 	}
 
+	/**
+	 * Terminate process
+	 * 
+	 * @param event
+	 *            No used.
+	 */
 	@FXML
 	private void handleCloseAction(ActionEvent e) {
 		System.out.println("Exit clock");
@@ -115,6 +138,9 @@ public class ClockController implements Initializable {
 		System.exit(0);
 	}
 
+	/**
+	 * Save clock setting
+	 */
 	private void savePrefs() {
 		prefs.saveDouble(STAGE_X, stage.getX());
 		prefs.saveDouble(STAGE_Y, stage.getY());
@@ -131,21 +157,20 @@ public class ClockController implements Initializable {
 		prefs.saveDouble(BACK_COLOR_O, backColor.getOpacity());
 	}
 
+	/**
+	 * update time by current time
+	 */
 	private void updateTime() {
 		time.setText(LocalTime.now(clock).format(DateTimeFormatter.ISO_TIME));
-		// System.out.println(time.getFont().getName());
-		// Text text = new Text("00:00:00");
-		// text.setFont(time.getFont());
-		// stage.setHeight(text.getLayoutBounds().getHeight()
-		// * 1.5 + menuBar.getHeight());
-		// stage.setWidth(text.getLayoutBounds().getWidth()
-		// * 1.1);
-		// System.out.println("width : " +
-		// time.getWidth());
-		// System.out.println("height : " +
-		// time.getHeight());
 	}
 
+	/**
+	 * Change color value to CSS format
+	 * 
+	 * @param c
+	 *            Original color
+	 * @return Color by string using CSS format
+	 */
 	protected String getRgb(Color c) {
 		String result = "rgba( ";
 		result += getRGBValue(c.getRed()) + "," + getRGBValue(c.getGreen()) + ","
@@ -154,6 +179,15 @@ public class ClockController implements Initializable {
 		return result;
 	}
 
+	/**
+	 * Convert RGB value from Color.getXXX()
+	 * format to 1-255
+	 * 
+	 * @param d
+	 *            RGB value get from
+	 *            Color.getXXX(). 0-1.0
+	 * @return RGB value. 1-255
+	 */
 	private int getRGBValue(double d) {
 		return (int) (255 * d);
 	}
