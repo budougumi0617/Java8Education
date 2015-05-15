@@ -76,9 +76,9 @@ public class ClockController implements Initializable {
 				FONT_SIZE, 50.)));
 		System.out.println("font size : " + time.getFont().getSize());
 		System.out.println("font name : " + time.getFont().getName());
-		time.setTextFill(Color.web(prefs.loadString(FONT_COLOR, "#0000000")));
-		backColor = new Color(prefs.loadDouble(BACK_COLOR_R, 255.), prefs.loadDouble(
-				BACK_COLOR_G, 255.), prefs.loadDouble(BACK_COLOR_B, 255.),
+		time.setTextFill(Color.web(prefs.loadString(FONT_COLOR, "0x000000")));
+		backColor = new Color(prefs.loadDouble(BACK_COLOR_R, 1.), prefs.loadDouble(
+				BACK_COLOR_G, 1.), prefs.loadDouble(BACK_COLOR_B, 1.),
 				prefs.loadDouble(BACK_COLOR_O, 1));
 		stage.setX(prefs.loadDouble(STAGE_X, 300.));
 		stage.setY(prefs.loadDouble(STAGE_Y, 100.));
