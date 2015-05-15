@@ -34,6 +34,7 @@ public class Ex02 {
 			}
 		} catch (FileNotFoundException // PrintWriterのコンストラクタは例外をスローする。
 				| IllegalStateException | NoSuchElementException e) {
+            secondaryException = e;
 			e.printStackTrace();
 		} finally {
 			try {
