@@ -5,4 +5,5 @@ before_install:
 jdk:
       - oraclejdk8
 
-script: "gradle test"
+after_success:
+    - ./gradlew test jacocoTestReport coveralls

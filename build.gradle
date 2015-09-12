@@ -1,5 +1,20 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.3.1'
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'groovy'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'jacoco'
+apply plugin: 'checkstyle'
+apply plugin: 'com.github.kt3k.coveralls'
 
 sourceCompatibility = targetCompatibility = '1.8'
 
@@ -7,9 +22,31 @@ repositories {
     mavenCentral()
 }
 
+tasks.withType(FindBugs) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
+}
+
+findbugs {
+        sourceSets = [sourceSets.main]
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.6'
+}
 dependencies {
     testCompile 'junit:junit:4.11', {
         transitive = false
     }
     testCompile 'org.hamcrest:hamcrest-all:1.3'
+}
+
+jacocoTestReport {
+        reports {
+            xml.enabled = true
+            html.enabled = true
+        }
 }
