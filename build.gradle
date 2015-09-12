@@ -10,7 +10,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'groovy'
-apply plugin: 'findbugs'
 apply plugin: 'pmd'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
@@ -20,18 +19,6 @@ sourceCompatibility = targetCompatibility = '1.8'
 repositories {
     mavenCentral()
 }
-
-tasks.withType(FindBugs) {
-        reports {
-            xml.enabled = false
-            html.enabled = true
-        }
-}
-
-findbugs {
-        sourceSets = [sourceSets.main]
-}
-
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
