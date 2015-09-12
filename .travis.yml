@@ -4,6 +4,10 @@ before_install:
       - "sh -e /etc/init.d/xvfb start"
 jdk:
       - oraclejdk8
+      
+script: "gradle test"
 
 after_success:
-    - ./gradlew test jacocoTestReport coveralls --debug 
+      - "export DISPLAY=:99.0"
+      - "sh -e /etc/init.d/xvfb start"
+      - ./gradlew jacocoTestReport coveralls
