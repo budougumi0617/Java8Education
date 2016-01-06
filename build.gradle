@@ -35,3 +35,7 @@ jacocoTestReport {
             html.enabled = true
         }
 }
+
+coveralls {
+      sourceDirs = files(sourceSets.main.allSource.srcDirs).files.absolutePath
+}
